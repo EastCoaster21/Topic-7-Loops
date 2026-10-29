@@ -8,6 +8,7 @@
             string heads;
             string tails;
             string quit;
+            Random generator = new Random();
             double score = 3;
             Console.WriteLine("Welcome to the coin flip game!");
             Console.WriteLine("(Press Enter to Continue:)");
@@ -31,6 +32,7 @@
             Console.WriteLine("1.Heads");
             Console.WriteLine("2.Tails");
             Console.WriteLine("3.quit");
+            Console.Write(generator.Next(1, 3));
             answer = Convert.ToInt32(Console.ReadLine());
             if (answer == 1)
             {
