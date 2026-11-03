@@ -4,8 +4,6 @@
     {
         static void Main(string[] args)
         {
-            while (true) 
-            {
                 string guess;
                 int coinSide;
                 int heads = 1;
@@ -30,36 +28,47 @@
                 Console.WriteLine("Pretty easy right? Thought so.");
                 Console.ReadLine();
                 Console.Clear();
+            while (true)
+            {
                 coinSide = generator.Next(1, 3);
                 Console.WriteLine("Now. Heads or Tails?");
                 guess = Console.ReadLine();
                 Console.Clear();
-                Console.WriteLine();
                 if (coinSide == heads)
                 {
                     Console.WriteLine("The coin was heads!");
-                    //if (guess = coinSide)
+                    if (guess.ToUpper() == "HEADS"||guess.ToUpper() =="H")
                     {
                         score++;
                         Console.WriteLine("Congratulations! You were right.");
+                    }
+                    else
+                    {
+                        score--;
+                        Console.WriteLine("You got it wrong, sorry.");
                     }
 
                 }
                 else if (coinSide == tails)
                 {
                     Console.WriteLine("The coin was tails!");
-                    //if (guess = coinSide)
+                    if (guess.ToUpper() == "TAILS"|| guess.ToUpper() == "T")
                     {
                         score++;
                         Console.WriteLine("Congratulations! You were right.");
+                    }
+                    else
+                    {
+                        score--;
+                        Console.WriteLine("You got it wrong, sorry.");
                     }
                 }
                 //else if (coinSide == 3)
                 {
 
                 }
+                //Console.Clear();
                 Console.WriteLine("Your score is now: " + score);
-            
         }   }
     }
 }
