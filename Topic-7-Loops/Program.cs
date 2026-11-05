@@ -36,7 +36,7 @@
                 Console.WriteLine(" points.");
                 Console.WriteLine("Now. Heads or Tails? (Or Quit)");
                 guess = Console.ReadLine();
-                Console.Clear();
+                //Console.Clear();
                 if (guess == "quit")
                 {
                     Console.WriteLine("Thanks for playing!");
@@ -44,34 +44,32 @@
                     Console.WriteLine(" points.");
                     break;
                 }
-                if (guess != "heads" && guess != "tails")
+                if (guess.ToUpper() != "HEADS" && guess.ToUpper() != "H" && guess.ToUpper() != "TAILS" && guess.ToUpper() != "T")
                 {
                     Console.WriteLine("Invalid choice. Please enter heads, tails, or quit.");
+                }
+                else
+                {
+
+
                     Console.WriteLine();
-                    if (coinSide == 1)
+                    if (coinSide == 1 && (guess.ToUpper() == "HEADS" || guess.ToUpper() == "H"))
                     {
                         upside = "heads";
                         Console.WriteLine("The coin was heads!");
+                        score++;
                     }
-                    else 
+                    else if (coinSide == 2 && (guess.ToUpper() == "TAILS" || guess.ToUpper() == "T"))
                     {
+                        score++;
                         upside = "tails";
                         Console.WriteLine("The coin was tails!");
                     }
-                }
-                else if (coinSide == 2)
-                {
-                   Console.WriteLine("The coin was tails!");
-                   if (guess.ToUpper() == "TAILS" || guess.ToUpper() == "T")
-                   {
-                      score++;
-                      Console.WriteLine("Congratulations! You were right.");
-                   }
-                   else
-                   {
-                      score--;
-                      Console.WriteLine("You got it wrong, sorry.");
-                   }
+                    else
+                    {
+                        Console.WriteLine("You got it wrong, pal.");
+                        score--;
+                    }
                 }
             }
             if (score == 0)
