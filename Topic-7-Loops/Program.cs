@@ -5,6 +5,7 @@
         static void Main(string[] args)
         {
             string guess;
+            string upside;
             int coinSide;
             int heads = 1;
             int tails = 2;
@@ -47,36 +48,36 @@
                 {
                     Console.WriteLine("Invalid choice. Please enter heads, tails, or quit.");
                     Console.WriteLine();
-                    if (coinSide == heads)
+                    if (coinSide == 1)
                     {
+                        upside = "heads";
                         Console.WriteLine("The coin was heads!");
-                        if (guess.ToUpper() == "HEADS" || guess.ToUpper() == "H")
-                        {
-                            score++;
-                            Console.WriteLine("Congratulations! You were right.");
-                        }
-                        else
-                        {
-                            score--;
-                            Console.WriteLine("You got it wrong, sorry.");
-                        }
-
                     }
-                    else if (coinSide == tails)
+                    else 
                     {
+                        upside = "tails";
                         Console.WriteLine("The coin was tails!");
-                        if (guess.ToUpper() == "TAILS" || guess.ToUpper() == "T")
-                        {
-                            score++;
-                            Console.WriteLine("Congratulations! You were right.");
-                        }
-                        else
-                        {
-                            score--;
-                            Console.WriteLine("You got it wrong, sorry.");
-                        }
                     }
                 }
+                else if (coinSide == 2)
+                {
+                   Console.WriteLine("The coin was tails!");
+                   if (guess.ToUpper() == "TAILS" || guess.ToUpper() == "T")
+                   {
+                      score++;
+                      Console.WriteLine("Congratulations! You were right.");
+                   }
+                   else
+                   {
+                      score--;
+                      Console.WriteLine("You got it wrong, sorry.");
+                   }
+                }
+            }
+            if (score == 0)
+            {
+                Console.WriteLine("Game over! You ran out of points.");
+                Console.WriteLine("Better luck next time.");
             }
         }
     }
